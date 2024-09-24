@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Add Job</h2>
+        <form action method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="title"
+                id><br><br>
+            <input type="text" name="numberOfOpenings"
+                placeholder="numberOfOpenings" id><br><br>
+
+            <input type="text" name="category" placeholder="category"
+                id><br><br>
+
+            <input type="text" name="jobDescription" placeholder="jobDescription"
+                id><br><br>
+            <input type="text" name="jobDescription" placeholder="jobDescription"
+                id><br><br>
+
+            <input type="text" name="skill"
+                placeholder="skill" id><br><br>
+
+            <input type="submit" value="Add Job" id>
+        </form>
+    </body>
+</html>
+{% endblock content %}

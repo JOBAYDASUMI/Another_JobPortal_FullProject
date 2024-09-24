@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        {% for i in myjob %}
+
+        <h1>job Titel : {{i.title}}
+            <p>numberOfOpenings: {{i.numberOfOpenings}} </p>
+            <p>category: {{i.category}} </p>
+            <p>jobDescription: {{i.jobDescription}} </p>
+            <p>skill: {{i.skill}} </p>
+        </h1>
+
+        {% endfor %}
+    </body>
+</html>
+{% endblock content %}

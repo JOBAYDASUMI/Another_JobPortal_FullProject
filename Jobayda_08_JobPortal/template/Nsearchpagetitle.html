@@ -1,0 +1,114 @@
+<!-- 
+{% extends 'index.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Search for {{query}} </h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Skills</th>
+    <th>Actions</th>
+  </tr>
+  {% for i in search %}
+  <tr>
+    <td> {{i.title}} </td>
+    <td> {{i.category}} </td>
+    <td> {{i.skills}} </td>
+    <td>
+    
+        <a href="{% url 'jobdetails' i.id %}">View</a>
+        <a href="{% url 'applyjobpage' i.id %}">Apply Job</a>
+        
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
+
+
+{% endblock content %} -->
+
+
+
+
+
+
+<!-- 
+{% extends 'index.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Search for {{query}} </h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Skills</th>
+    <th>Actions</th>
+  </tr>
+  {% for i in search %}
+  <tr>
+    <td> {{i.title}} </td>
+    <td> {{i.category}} </td>
+    <td> {{i.skills}} </td>
+    <td>
+    
+        <a href="{% url 'jobdetails' i.id %}">View</a>
+        {% if user.usertype == 'job_seeker' %}
+        <a href="{% url 'applyjobpage' i.id %}">Apply Job</a>
+        {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html> -->

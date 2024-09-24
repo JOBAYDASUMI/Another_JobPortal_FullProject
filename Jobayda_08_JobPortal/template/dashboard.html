@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #c27c7c;
+  color: white;
+}
+</style>
+  </head>
+  <body>
+
+    <h1>Job List</h1>
+
+    <table id="customers">
+      <tr>
+        <th>title</th>
+        <th>numberOfOpenings</th>
+        <th>category</th>
+        <th>jobDescription</th>
+        
+        <th>skill</th>
+
+        {% if user.usertype == 'job_seeker' %}
+        <th>Action</th>
+        {% endif %}
+
+      </tr>
+
+      {% for i,already_applied in myjob %}
+      <tr>
+        <td> {{i.title}} </td>
+        <td> {{i.numberOfOpenings}} </td>
+        <td> {{i.category}} </td>
+        <td> {{i.jobDescription}} </td>
+        <td> {{i.skill}} </td>
+
+
+        {% if user.usertype == 'job_seeker' %}
+        
+        {% if already_applied %}
+        <td><p>Already Applied</p></td>  
+        
+          {% else %}
+          <td> <a href="{% url 'applyjob' i.id %}">Apply</a> </td>
+        {% endif %}
+          
+        
+        {% endif %}
+
+      </tr>
+      {% endfor %}
+
+    </table>
+  </body>
+</html>
+{% endblock content %}

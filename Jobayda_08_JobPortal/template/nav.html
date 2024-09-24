@@ -1,0 +1,24 @@
+
+<ul>
+  <li><a href="{% url 'dashboard' %}">Home</a></li>
+
+  {% if user.usertype == 'recruiter' %}
+  <li><a href="{% url 'addjob' %}">Add Jobs</a></li>
+  <li><a href="{% url 'joblistforrecruiter' %}">All Jobs</a></li>
+  {% endif %}
+
+  {% if user.usertype == 'job_seeker' %}
+  <li><a href="{% url 'joblistforall' %}">All Jobs</a></li>
+
+  {% endif %}
+  <li><a href="{% url 'profile' %}">Profile</a></li>
+  <li style="float:right"><a class="active" href="{% url 'signout' %}">Log
+      Out</a></li>
+  <div class="search-container">
+    <form action="{% url 'searchpage' %}" method="GET">
+      {% csrf_token %}
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</ul>

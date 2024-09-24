@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Apply Job for {{myjob.job_title}}</h2>
+        <form action method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="resume" accept=".pdf/*,.docx/*"
+                placeholder="resume" id><br><br>
+            <input type="text" name="skill" 
+                placeholder="skill" id><br><br>
+            <input type="submit" value="Apply" id>
+        </form>
+    </body>
+</html>
+{% endblock content %}
